@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #7D7DFF;
+  --color-dark: #0F0F1E;
+  --color-card: #1A1A2E;
+  --color-muted: #94A3B8;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-sans antialiased selection:bg-brand selection:text-white;
+    cursor: default;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand to-purple-400;
+  }
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+  }
+}
